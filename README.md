@@ -39,9 +39,20 @@ MuQSS is not enabled by default. Can be enabled with CONFIG_SCHED_MUQSS variable
 
 - [z3fold](https://www.kernel.org/doc/html/latest/vm/z3fold.html) is now default compression allocator with stronger compression. [4eab5c9ea4fd3e6595b664a429869f4611fad7d4](https://github.com/zen-kernel/zen-kernel/commit/4eab5c9ea4fd3e6595b664a429869f4611fad7d4)
 
+- [Transparent Huge Page](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#global-thp-controls) defragmentation strategy to defer+madwise. [11c4c38b31dce0ff44972f495da537b3fbb0945f](https://github.com/zen-kernel/zen-kernel/commit/11c4c38b31dce0ff44972f495da537b3fbb0945f)
+
+- Unevictable memory not allowed to be compacted. [394ae0c10f1a73cc0b9a738e5e4c070076cc7727](https://github.com/zen-kernel/zen-kernel/commit/394ae0c10f1a73cc0b9a738e5e4c070076cc7727)
+
+- Writeback triggers at higher memory threshold. [598f06b26605fd12c5d955ef86ff3add25343efc](https://github.com/zen-kernel/zen-kernel/commit/598f06b26605fd12c5d955ef86ff3add25343efc)
+  - Background writeback threshold: 10% -> 20%
+  - Sync writeback threshold: 20% -> 50%
+
 ## IO
 
 - [BFQ](https://www.kernel.org/doc/html/latest/block/bfq-iosched.html) (budget fair queueing) as default scheduler for multiqueue block devices. [07b36ce250f292fc4590cbadb4c5797c54f528b5](https://github.com/zen-kernel/zen-kernel/commit/07b36ce250f292fc4590cbadb4c5797c54f528b5)
+
+- ~Increase block layer queue depth to 512. [9646e76dda2341d1cdd3796690a1f1861ebcb1bd](https://github.com/zen-kernel/zen-kernel/commit/9646e76dda2341d1cdd3796690a1f1861ebcb1bd)~
+  - Reverted. [99a750246b733bf1f9178458c5b8193ad4626de0](https://github.com/zen-kernel/zen-kernel/commit/99a750246b733bf1f9178458c5b8193ad4626de0)
 
 ## Drivers
 
@@ -50,6 +61,8 @@ MuQSS is not enabled by default. Can be enabled with CONFIG_SCHED_MUQSS variable
 ## Misc
 
 - Allowed O3 level of optimizations outside of [ARC](https://en.wikipedia.org/wiki/ARC_(processor)) architecture. [8e4c45742cfca87c0cc44e7969ab8826be9139be](https://github.com/zen-kernel/zen-kernel/commit/8e4c45742cfca87c0cc44e7969ab8826be9139be)
+
+- Added ZEN_INTERACTIVE compile variable that enables the latency improvements. [827501ad72d510cb15ca96495b2233606b739f5e](https://github.com/zen-kernel/zen-kernel/commit/827501ad72d510cb15ca96495b2233606b739f5e)
 
 ## Uncategorized
 
